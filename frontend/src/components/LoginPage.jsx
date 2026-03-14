@@ -14,7 +14,7 @@ const LoginPage = () => {
   const handleLogin = () => {
     if (username === adminUser && password === adminPass) {
       localStorage.setItem("isLoggedIn", "true");
-      navigate("/admin");
+      navigate("/generate-admin-key");
     } else {
       setShake(true);
       setError("Invalid Username or Password");

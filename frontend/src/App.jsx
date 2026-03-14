@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
-import SignupPage from "./components/SignupPage";
-import AdminlevelPage from "./components/AdminlevelPage";
-import ProtectedRoute from "./components/ProtectedRoute";
+import LoginPage from "./components/LoginPage.jsx";
+import SignupPage from "./components/SignupPage.jsx";
+import AdminlevelPage from "./components/AdminlevelPage.jsx";
+import ProtectedRoute from "../src/ProtectedRoute.jsx";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/signup" element={<SignupPage />} />
 
         <Route
-          path="/admin"
+          path="/generate-admin-key"
           element={
             <ProtectedRoute>
               <AdminlevelPage />
