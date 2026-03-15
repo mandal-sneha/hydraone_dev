@@ -85,6 +85,26 @@ export const generateAdminKey = async (req, res) => {
             });
         }
 
+        if (adminLevel === "district") {
+            const stateAdmin = await Key.findOne({ adminLevel: "state", state });
+            if (!stateAdmin) {
+                return res.status(403).json({ 
+                    success: false, 
+                    message: `Cannot create district admin. State admin for ${state} does not exist.` 
+                });
+            }
+        }
+
+        if (adminLevel === "municipality") {
+            const districtAdmin = await Key.findOne({ adminLevel: "district", state, district });
+            if (!districtAdmin) {
+                return res.status(403).json({ 
+                    success: false, 
+                    message: `Cannot create municipality admin. District admin for ${district}, ${state} does not exist.` 
+                });
+            }
+        }
+
         let newKeyData;
 
         if (adminLevel === "state") {
