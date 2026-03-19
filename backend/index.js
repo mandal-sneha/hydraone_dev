@@ -3,8 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { ConnectDB } from "./src/lib/db.js";
 
-import keyRoutes from "./src/routes/key.route.js";
+import adminRoutes from "./src/routes/admin.route.js";
 import authRoutes from "./src/routes/auth.route.js";
+import keyRoutes from "./src/routes/key.route.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cors({
 
 app.use(express.json());
 
+app.use("/admin", adminRoutes);
 app.use("/auth", authRoutes);
 app.use("/key", keyRoutes);
 
