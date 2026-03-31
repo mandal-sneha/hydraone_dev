@@ -18,19 +18,19 @@ const LoginPage = () => {
 
     try {
       const response = await axiosInstance.post("/auth/login", {
-      developerId,
-       password
-        });
+        developerId,
+        password,
+      });
 
-  const data = response.data;
+      const data = response.data;
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("developerName", data.developer.name);
+      localStorage.setItem("developerId", data.developer.id);
 
-      navigate("/generate-admin-key");
-
-    } 
-    catch (err) {
+      
+      navigate("/dashboard");
+    } catch (err) {
       setShake(true);
       setError(
         err.response?.data?.message || "Invalid Developer ID or Password"
@@ -46,8 +46,11 @@ const LoginPage = () => {
         HYDRAONE
       </h1>
 
-      <div className={`bg-white/70 backdrop-blur-md border border-white/60 rounded shadow-lg w-full max-w-md px-12 py-10 ${shake ? "animate-bounce" : ""}`}>
-
+      <div
+        className={`bg-white/70 backdrop-blur-md border border-white/60 rounded shadow-lg w-full max-w-md px-12 py-10 ${
+          shake ? "animate-bounce" : ""
+        }`}
+      >
         
         <div className="mb-5">
           <label className="block text-xs font-light tracking-widest text-slate-400 uppercase mb-2">
@@ -112,7 +115,6 @@ const LoginPage = () => {
             Signup
           </Link>
         </p>
-
       </div>
     </div>
   );

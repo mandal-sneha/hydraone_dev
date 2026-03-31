@@ -37,9 +37,10 @@ const SignupPage = () => {
 
       
       localStorage.setItem("developerName", data.developer.name);
+      localStorage.setItem("developerId", data.developer.id);
 
       
-      navigate("/generate-admin-key");
+      navigate("/dashboard");
 
     } catch (err) {
       setError(

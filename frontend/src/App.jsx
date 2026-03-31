@@ -1,30 +1,29 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage.jsx";
 import SignupPage from "./components/SignupPage.jsx";
-import AdminlevelPage from "./components/AdminlevelPage.jsx";
-import ProtectedRoute from "../src/ProtectedRoute.jsx";
+import DashboardPage from "./components/DashboardPage.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
 
 const App = () => {
   return (
     <BrowserRouter>
-
       <Routes>
 
+        {/* Public Routes */}
         <Route path="/" element={<LoginPage />} />
-
         <Route path="/signup" element={<SignupPage />} />
 
+        {/* Protected Dashboard (Main App) */}
         <Route
-          path="/generate-admin-key"
+          path="/dashboard"
           element={
             <ProtectedRoute>
-              <AdminlevelPage />
+              <DashboardPage />
             </ProtectedRoute>
           }
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 };
