@@ -71,8 +71,6 @@ const InputField = ({ label, value, onChange, placeholder }) => (
   </div>
 );
 
-// ── embedded: true  → rendered inside DashboardPage (no navbar)
-// ── embedded: false → standalone page (with navbar + logout)
 const AdminLevelPage = ({ embedded = false }) => {
   const navigate = useNavigate();
 
@@ -157,11 +155,9 @@ const AdminLevelPage = ({ embedded = false }) => {
     navigate("/");
   };
 
-  // ── Wrapper differs based on embedded mode ─────────────────────────────────
   const content = (
     <div className={`flex-1 flex flex-col ${embedded ? "" : "min-h-screen bg-gradient-to-br from-blue-100 via-slate-100 to-blue-200"}`}>
 
-      {/* Standalone-only navbar */}
       {!embedded && (
         <nav className="flex items-center justify-between px-10 py-4 bg-white/60 backdrop-blur-sm border-b border-white/50">
           <span className="text-lg font-light tracking-widest text-slate-700 uppercase">HydraOne</span>
@@ -179,7 +175,6 @@ const AdminLevelPage = ({ embedded = false }) => {
       <div className="flex-1 flex flex-col items-center justify-center py-14 px-4">
         <div className="bg-white/70 backdrop-blur-md border border-white/60 rounded shadow-lg w-full max-w-lg px-12 py-10">
 
-          {/* Page heading when embedded */}
           {embedded && (
             <div className="mb-6">
               <p className="text-xs font-light tracking-widest text-slate-400 uppercase mb-1">Developer Console</p>

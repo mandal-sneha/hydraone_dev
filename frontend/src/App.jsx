@@ -9,11 +9,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
 
-        {/* Public Routes */}
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
 
-        {/* Protected Dashboard (Main App) */}
         <Route
           path="/dashboard"
           element={
