@@ -26,10 +26,8 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-blue-100 via-slate-100 to-blue-200">
 
-      {/* ── Sidebar ── */}
       <aside className="w-64 shrink-0 flex flex-col bg-white/60 backdrop-blur-sm border-r border-white/50 shadow-sm overflow-hidden">
 
-        {/* Brand */}
         <div className="px-8 py-6 border-b border-white/50">
           <span className="text-lg font-light tracking-widest text-slate-700 uppercase">
             HydraOne
@@ -39,7 +37,6 @@ const DashboardPage = () => {
           </p>
         </div>
 
-        {/* Nav */}
         <nav className="flex-1 px-4 py-6 flex flex-col gap-1">
 
           <button
@@ -72,7 +69,6 @@ const DashboardPage = () => {
 
         </nav>
 
-        {/* Logout */}
         <div className="px-4 py-5 border-t border-white/40">
           <button
             onClick={handleLogout}
@@ -87,7 +83,6 @@ const DashboardPage = () => {
 
       </aside>
 
-      {/* ── Main Content ── */}
       <div className="flex-1 min-w-0 overflow-auto">
         {activePage === "generate" ? (
           <AdminLevelPage embedded />
